@@ -19,6 +19,8 @@ The project is structured to separate raw data from calculations. Analysis is ba
 
 ![Screenshot 1 - Invoice_Master_Data Sheet Setup](assets/screenshot_1_invoice_master_data.png)
 
+*Figure 1: Initial setup of the \`Invoice\_Master\_Data\` sheet, showing all raw input columns.*
+
 ---
 
 ## 2. 📊 Sheet: `Analysis_Sheet`
@@ -34,6 +36,8 @@ The project is structured to separate raw data from calculations. Analysis is ba
 
 ![Screenshot 2 - Analysis_Sheet Setup](assets/screenshot_2_analysis_sheet.png)
 
+*Figure 2: Setup of the \`Analysis\_Sheet\` showing input columns copied from the Master Data and the added calculation columns (G-I).*
+
 ---
 
 ## 3. 🧠 Calculation Logic: Calculated Status (Column H)
@@ -44,9 +48,9 @@ The core of the financial analysis lies in determining the status of each invoic
 
 This formula prioritizes the transaction history over the deadline, operating in a hierarchy:
 
-1.  **Paid Priority:** The system first checks the **Payment Date (Column F)**. If a date exists, the invoice is immediately marked as **PAID**. This status supersedes all other considerations, as the debt has been settled.
-2.  **Overdue Check:** If the invoice has not been paid (i.e., Payment Date is null), the formula uses the fixed **Reference Date (Column G)** to check for delinquency. If the **Due Date (Column E)** is earlier than the Reference Date, the invoice is marked as **OVERDUE**.
-3.  **Upaid Status:** If the invoice is neither PAID nor OVERDUE, it is marked as **UNPAID**. This means the payment is still expected, but the deadline has not yet been reached relative to the Reference Date.
+1.  **Paid Priority:** The system first checks the **Payment Date (Column F)**. If a date exists, the invoice is immediately marked as **PAID**. This status supersedes all other considerations, as the debt has been settled.
+2.  **Overdue Check:** If the invoice has not been paid (i.e., Payment Date is null), the formula uses the fixed **Reference Date (Column G)** to check for delinquency. If the **Due Date (Column E)** is earlier than the Reference Date, the invoice is marked as **OVERDUE**.
+3.  **Upaid Status:** If the invoice is neither PAID nor OVERDUE, it is marked as **UNPAID**. This means the payment is still expected, but the deadline has not yet been reached relative to the Reference Date.
 
 ---
 
@@ -64,6 +68,8 @@ This visual system allows analysts to immediately identify critical items (Red),
 
 ![Screenshot 3 - Analysis_Sheet Setup](assets/screenshot_3_conditional_formatting.png)
 
+*Figure 3: Conditional Formatting applied to the Calculated Status (Column H) for visual assessment of Paid (Green), Unpaid (Yellow), and Overdue (Red) invoices.*
+
 ---
 
 ## 5. 🗓️ Days Overdue (Column I - Screenshot 4)
@@ -79,6 +85,8 @@ The formula used is:
 
 ![Screenshot 4 - Analysis_Sheet Setup](assets/screenshot_4_days_overdue.png)
 
+*Figure 4: Display of the "Days Overdue" calculation (Column I), showing the number of days past the due date for critical (Overdue) invoices.*
+
 ---
 
 ## 6. 📊 Sheet: `Dashboard`
@@ -91,8 +99,8 @@ The formula used is:
 
 The initial setup for the interactive dashboard involves two main steps:
 
-1.  **Unique Customer List:** Copy **Column C (Customer)** from `Invoice_Master_Data` into a dedicated column (e.g., Column A) on the `Dashboard` sheet. Remove duplicates to create the unique list of clients (16 different customers in this simulation).
-2.  **Dropdown Menus:** Apply **Data Validation (List)** to the input cells (C4 and G4/C11 and G11), referencing the unique customer list (e.g., `=$A$2:$A$17`) as the data source. This creates the dynamic selection menus.
+1.  **Unique Customer List:** Copy **Column C (Customer)** from `Invoice_Master_Data` into a dedicated column (e.g., Column A) on the `Dashboard` sheet. Remove duplicates to create the unique list of clients (16 different customers in this simulation).
+2.  **Dropdown Menus:** Apply **Data Validation (List)** to the input cells (C4 and G4/C11 and G11), referencing the unique customer list (e.g., `=$A$2:$A$17`) as the data source. This creates the dynamic selection menus.
 
 ### 6.2. 📈 Key Performance Indicators (KPI) Formulas
 
@@ -140,5 +148,6 @@ The four KPI panels use conditional counting and summing to retrieve client-spec
 
 ![Screenshot 5 - Dashboard Setup and Formula Display](assets/screenshot_5_dashboard_setup_and_formulas.png)
 
----
+*Figure 5: The complete Dashboard sheet, illustrating the unique customer list, the KPI panels, the active dropdown menu, and the visualization of the four primary calculation formulas.*
 
+---
