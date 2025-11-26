@@ -78,3 +78,67 @@ The formula used is:
 * For all other statuses (PAID or UNPAID), the value is set to **0**, as the invoice is either settled or not yet due.
 
 ![Screenshot 4 - Analysis_Sheet Setup](assets/screenshot_4_days_overdue.png)
+
+---
+
+## 6. 📊 Sheet: `Dashboard`
+
+**Role:** The **Dashboard** sheet acts as the primary executive summary and analysis tool. It provides key performance indicators (KPIs) and allows for detailed analysis of a single customer using a dynamic dropdown filter.
+
+---
+
+### 6.1. ⚙️ Setup and Data Validation
+
+The initial setup for the interactive dashboard involves two main steps:
+
+1.  **Unique Customer List:** Copy **Column C (Customer)** from `Invoice_Master_Data` into a dedicated column (e.g., Column A) on the `Dashboard` sheet. Remove duplicates to create the unique list of clients (16 different customers in this simulation).
+2.  **Dropdown Menus:** Apply **Data Validation (List)** to the input cells (C4 and G4/C11 and G11), referencing the unique customer list (e.g., `=$A$2:$A$17`) as the data source. This creates the dynamic selection menus.
+
+### 6.2. 📈 Key Performance Indicators (KPI) Formulas
+
+The four KPI panels use conditional counting and summing to retrieve client-specific data based on the customer selected via the dropdown menu.
+
+#### **A. Total Invoices Issued (Cell D4)**
+
+**Objective:** Count the total number of invoices issued for the selected customer.
+
+**FORMULA:**
+
+`=COUNTIF(Analysis_Sheet!C:C, C4)`
+
+**Logic:** Counts how many times the name of the selected customer (C4) appears in the **Customer Column (C)** of the `Analysis_Sheet`.
+
+#### **B. Total Amount Billed (Cell D11)**
+
+**Objective:** Calculate the total monetary value billed to the selected customer, regardless of payment status.
+
+**FORMULA:**
+
+`=SUMIF(Analysis_Sheet!C:C, C11, Analysis_Sheet!D:D )`
+
+**Logic:** Executes a sum on the **Amount Column (D)** of `Analysis_Sheet` if the values in the **Customer Column (C)** are equal to the selected customer (C11). This includes all invoices (Paid, Unpaid, and Overdue).
+
+#### **C. Total Outstanding Invoice Count (Cell H4)**
+
+**Objective:** Count the number of invoices that are still considered "outstanding" (Overdue or Unpaid) for the selected customer.
+
+**FORMULA:**
+
+`=COUNTIFS(Analysis_Sheet!C:C, G4, Analysis_Sheet!H:H, "Overdue") + COUNTIFS(Analysis_Sheet!C:C, G4, Analysis_Sheet!H:H, "Unpaid")`
+
+**Logic:** Uses two `COUNTIFS` functions to sum the count of invoices that satisfy both the Customer criterion (G4) AND the status criterion ("Overdue" or "Unpaid"). The results are summed to find the total outstanding count (excluding "Paid" invoices).
+
+#### **D. Total Outstanding Amount (Cell H11)**
+
+**Objective:** Calculate the total outstanding monetary amount still due from the selected customer (Overdue or Unpaid).
+
+**FORMULA:**
+
+`=SUMIFS(Analysis_Sheet!D:D, Analysis_Sheet!C:C, G11, Analysis_Sheet!H:H, "Overdue") + SUMIFS(Analysis_Sheet!D:D, Analysis_Sheet!C:C, G11, Analysis_Sheet!H:H, "Unpaid")`
+
+**Logic:** Uses two `SUMIFS` functions to sum the **Amount Column (D)** of the invoices that satisfy both the Customer criterion (G11) AND the status criterion ("Overdue" or "Unpaid"). The result is the total **Outstanding Amount** still owed (excluding "Paid" invoices).
+
+![Screenshot 5 - Dashboard Setup and Formula Display](assets/screenshot_5_dashboard_setup_and_formulas.png)
+
+---
+
