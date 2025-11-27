@@ -211,5 +211,5 @@ A 3D Column Chart is used to visually compare the total monetary value across th
 * **Type:** 3D Clustered Column Chart.
 * **Key Formatting:** Data Labels displaying the Currency (€) value were added to each column.
 
-![Screenshot 9 - Reporting Amount Chart Clean](assets/screenshot_9_reporting_amount_chart_clean.png)
+![Screenshot 9 - Reporting Amount Chart Clean](assets/screenshot_9_reporting_amount_chart.png)
 > **Figure 9:** Final visual output of the Total Amount by Status, highlighting the financial exposure in Euros.
