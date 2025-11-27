@@ -151,3 +151,34 @@ The four KPI panels use conditional counting and summing to retrieve client-spec
 *Figure 5: The complete Dashboard sheet, illustrating the unique customer list, the KPI panels, the active dropdown menu, and the visualization of the four primary calculation formulas.*
 
 ---
+
+## 7. 📈 Sheet: `Reporting`
+
+**Role:** This sheet serves as the project's **Data Visualization and KPI Summary Area**. It utilizes Pivot Tables based on the data in the `Analysis_Sheet` to present key findings in a clear, summarized, and visual format.
+
+---
+
+### 7.1 Pivot Table 1: Invoice Count Distribution
+
+This initial table provides a quick statistical overview of the entire portfolio, broken down by payment status.
+
+| Pivot Area | Field | Summary Type | Notes |
+| :--- | :--- | :--- | :--- |
+| **Rows** | **Calculated Status** | N/A | Groups invoices into **Overdue**, **Unpaid**, and **Paid**. |
+| **Values** | **Invoice Number** | **Count** | Calculates the total number of invoices in each status category. |
+
+#### 7.1.1 Chart 1: Invoice Status Percentages (Pie Chart)
+
+A 3D Pie Chart is derived directly from Pivot Table 1 to visualize the percentage mix of the invoice portfolio.
+
+* **Title:** **Invoice Status Percentages**
+* **Labels:** Configured to display both the **Value** (Count) and the **Percentage (%)**.
+* **Key Formatting:** The Chart buttons (Field Buttons) were hidden for a cleaner visual output.
+
+![Screenshot 6 - Reporting Sheet Pivot Chart Setup](assets/screenshot_6_reporting_pivot_chart_setup.png)
+> **Figure 6:** Pivot Table configuration, showing fields used to generate the invoice count and the associated Pie Chart.
+
+---
+
+![Screenshot 7 - Reporting Sheet Status Percentages](assets/screenshot_7_reporting_status_percentages.png)
+> **Figure 7:** Final visual output of the status distribution, showing the percentage breakdown of the portfolio.
