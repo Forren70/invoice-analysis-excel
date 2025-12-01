@@ -1,5 +1,7 @@
 # 🚀 CUSTOMER INVOICE ANALYSIS
 
+![Project Dashboard Preview: Customer Revenue Ranking](assets/screenshot_11_customer_revenue_ranking_chart.png)
+
 This is a **Simulated Financial Analysis Workbook**. All names and data are completely fictitious and generated for demonstration purposes.
 
 The project is structured to separate raw data from calculations. Analysis is based on a fixed reference date of **20/11/2025**.
