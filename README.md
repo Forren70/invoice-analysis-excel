@@ -250,3 +250,40 @@ This screenshot shows the data structure of Pivot Table 3 in the 'Reporting' she
 The finalized horizontal Bar Chart visualizes the data. The categories (Customers) are set in **reverse order** to ensure the top contributor is displayed at the top, facilitating clear ranking and risk assessment.
 
 ![Screenshot 11 - Customer Revenue Ranking Bar Chart](assets/screenshot_11_customer_revenue_ranking_chart.png)
+
+---
+
+## 10. 📈 Scatter Chart: Invoice Value vs. Payment Delay
+
+**Role:** This final advanced chart investigates a critical question for credit management: Is there a **linear correlation** between the `Amount` of an invoice and the `Days Overdue`? The objective of this visualization is the **Late Payment Trend Analysis**.
+
+**Analysis Conclusion: No Significant Linear Correlation Found**
+After filtering the data to include **only late payments** (`Days Overdue > 0`), the scatter plot reveals **no significant linear correlation** between the invoice value (X-Axis) and the length of the payment delay (Y-Axis).
+
+This is a crucial strategic finding: it proves that invoice collection efforts should not be solely prioritized based on invoice amount, as high-value invoices are not inherently more likely to be severely delayed. The risk of payment delay is distributed randomly across invoice values.
+
+The chart's primary use is for **Outlier Detection**, quickly highlighting specific, problematic invoices (high value + extreme delay) for immediate, targeted follow-up.
+
+| Axis | Data Point | Notes |
+| :--- | :--- | :--- |
+| **X-Axis** | Invoice Amount | Value in Currency (€) |
+| **Y-Axis** | Days Overdue | Length of the delay (Days) |
+
+---
+
+### Screenshot 12: Late Payment Trend Scatter Plot
+
+This screenshot shows the filtered data, highlighting the absence of a linear trend and the clear dispersion of late payments across all invoice values.
+
+![Screenshot 12 - Late Payment Trend Scatter Plot](assets/screenshot_12_late_payment_trend_scatter_plot.png)
+
+---
+
+## 📄 Project Analysis Summary (Sections 1-10)
+
+This workbook provides a simulated, end-to-end financial analysis of customer invoicing behavior, based on a fixed reference date (20/11/2025).
+
+1.  **Data Setup:** Raw data from the `Invoice_Master_Data` is enhanced in the `Analysis_Sheet` with key calculated metrics: `Calculated Status` (Overdue/Unpaid) and `Days Overdue`.
+2.  **Performance Analysis (Pivot Tables):** Multiple Pivot Tables and charts were created to calculate key performance indicators (KPIs), including the status of outstanding amounts and overall debt aging.
+3.  **Risk Assessment (Pivot Table 3):** The **Customer Revenue Ranking** was used to quantify and flag potential **Customer Concentration Risk**, which measures dependency on top clients.
+4.  **Correlation Test (Scatter Plot):** The final advanced analysis (**Late Payment Trend Analysis**) concluded that **no linear correlation exists** between the value of an invoice and the time it takes for payment to be received, informing collection strategy.
