@@ -213,3 +213,40 @@ A 3D Column Chart is used to visually compare the total monetary value across th
 
 ![Screenshot 9 - Reporting Amount Chart Clean](assets/screenshot_9_reporting_amount_chart.png)
 > **Figure 9:** Final visual output of the Total Amount by Status, highlighting the financial exposure in Euros.
+
+---
+
+## 9. 📊 Pivot Table 3: Customer Revenue Ranking for Risk Analysis
+
+**Role:** This Pivot Table and the corresponding Bar Chart are essential tools for **Customer Concentration Risk Analysis**. They provide an instant ranking of customers based on their total revenue contribution, which highlights **client dependency**.
+
+### Understanding Customer Concentration Risk
+
+A high dependency on a small number of customers can expose the business to significant risk (e.g., if a major client stops ordering, the impact on revenue will be severe). This metric is a key indicator of **sales stability**.
+
+**What the Chart Deduce:**
+* **High Concentration Risk:** A **steep drop-off** between the top 1-2 customers and the rest of the list indicates a high concentration of revenue, meaning the business is highly dependent on those top clients. This suggests higher vulnerability.
+* **Lower Concentration Risk:** A more **gradual slope**, where revenue is distributed across many customers, indicates lower risk and a more stable, diversified revenue base.
+
+### Pivot Table Fields & Calculation
+
+| Field | Pivot Table Area | Calculation Type | Notes |
+| :--- | :--- | :--- | :--- |
+| **Customer** | ROWS | - | Categorical axis (Y-axis) |
+| **Total Amount** | VALUES | SUM | Value axis (X-axis) |
+
+---
+
+### Screenshot 10: Pivot Table 3 Setup
+
+This screenshot shows the data structure of Pivot Table 3 in the 'Reporting' sheet, correctly sorted from the highest 'Total Amount' to the lowest.
+
+![Screenshot 10 - Customer Revenue Pivot Table Structure](assets/screenshot_10_customer_revenue_pivot_table.png)
+
+---
+
+### Screenshot 11: Customer Revenue Bar Chart
+
+The finalized horizontal Bar Chart visualizes the data. The categories (Customers) are set in **reverse order** to ensure the top contributor is displayed at the top, facilitating clear ranking and risk assessment.
+
+![Screenshot 11 - Customer Revenue Ranking Bar Chart](assets/screenshot_11_customer_revenue_ranking_chart.png)
