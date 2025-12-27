@@ -2,9 +2,11 @@
 
 ![Project Dashboard Preview: Customer Revenue Ranking](assets/screenshot_11_customer_revenue_ranking_chart.png)
 
-This is a **Simulated Financial Analysis Workbook**. All names and data are completely fictitious and generated for demonstration purposes.
+This project is a **professional Excel solution** created to track customer payments, calculate financial risks, and manage overdue invoices.
 
-The project is structured to separate raw data from calculations. Analysis is based on a fixed reference date of **20/11/2025**.
+Although the data is fictitious, the workbook is designed like a real business tool, keeping raw data separate from calculations to ensure accuracy and easy updates.
+
+**Reporting Date:** All analysis is based on a fixed reference date (**20/11/2025**) to provide a consistent "snapshot" of the company's financial health.
 
 ## 1. 📄 Sheet: `Invoice_Master_Data`
 
@@ -27,7 +29,7 @@ The project is structured to separate raw data from calculations. Analysis is ba
 
 ## 2. 📊 Sheet: `Analysis_Sheet`
 
-**Role:** The work area for all calculations.
+**Role:** The Processing Sheet where raw data is converted into calculated results.
 
 | Column | Description | Role |
 | :--- | :--- | :--- |
@@ -42,17 +44,17 @@ The project is structured to separate raw data from calculations. Analysis is ba
 
 ---
 
-## 3. 🧠 Calculation Logic: Calculated Status (Column H)
+## 3. 🧠 Business Logic: Invoice Status (Column H)
 
-The core of the financial analysis lies in determining the status of each invoice, documented in the **Calculated Status (Column H)**. The formula used is:
+The core of this analysis is the **automated status classification**. Instead of manual tracking, a nested formula determines the status of each invoice by following a specific **Priority Hierarchy**:
 
 `=IF(F2<>"","PAID",IF(E2<$G$2,"OVERDUE","UNPAID"))`
 
-This formula prioritizes the transaction history over the deadline, operating in a hierarchy:
+The logic operates on three business rules:
 
-1.  **Paid Priority:** The system first checks the **Payment Date (Column F)**. If a date exists, the invoice is immediately marked as **PAID**. This status supersedes all other considerations, as the debt has been settled.
-2.  **Overdue Check:** If the invoice has not been paid (i.e., Payment Date is null), the formula uses the fixed **Reference Date (Column G)** to check for delinquency. If the **Due Date (Column E)** is earlier than the Reference Date, the invoice is marked as **OVERDUE**.
-3.  **Upaid Status:** If the invoice is neither PAID nor OVERDUE, it is marked as **UNPAID**. This means the payment is still expected, but the deadline has not yet been reached relative to the Reference Date.
+1. **Payment Priority:** The system first checks the **Payment Date (Column F)**. If a date exists, the invoice is marked as **PAID**. This status overrides all other conditions.
+2. **Aging Check:** If unpaid, the formula compares the Due Date against the **Reporting Date (G)**. If the deadline has passed, the invoice is flagged as **OVERDUE**.
+3. **Pending Status:** If neither condition is met, the invoice is marked as **UNPAID**, meaning it is still within its payment terms relative to the snapshot date.
 
 ---
 
@@ -259,7 +261,7 @@ The finalized horizontal Bar Chart visualizes the data. The categories (Customer
 
 **Role:** This final advanced chart investigates a critical question for credit management: Is there a **linear correlation** between the `Amount` of an invoice and the `Days Overdue`? The objective of this visualization is the **Late Payment Trend Analysis**.
 
-**Analysis Conclusion: No Significant Linear Correlation Found**
+**Strategic Insight: Late Payment Trend Analysis**
 After filtering the data to include **only late payments** (`Days Overdue > 0`), the scatter plot reveals **no significant linear correlation** between the invoice value (X-Axis) and the length of the payment delay (Y-Axis).
 
 This is a crucial strategic finding: it proves that invoice collection efforts should not be solely prioritized based on invoice amount, as high-value invoices are not inherently more likely to be severely delayed. The risk of payment delay is distributed randomly across invoice values.
