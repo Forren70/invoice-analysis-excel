@@ -4,7 +4,7 @@
 
 This project is a **professional Excel solution** created to track customer payments, calculate financial risks, and manage overdue invoices.
 
-Although the data is fictitious, the workbook is designed like a real business tool, keeping raw data separate from calculations to ensure accuracy and easy updates.
+Although the data are fictitious, the workbook is designed like a real business tool, keeping raw data separate from calculations to ensure accuracy and easy updates.
 
 **Reporting Date:** All analysis is based on a fixed reference date (**20/11/2025**) to provide a consistent "snapshot" of the company's financial health.
 
